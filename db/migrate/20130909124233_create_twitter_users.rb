@@ -4,6 +4,9 @@ class CreateTwitterUsers < ActiveRecord::Migration
 
     create_table :twitter_users do |t|
       t.string :username
+
+      t.timestamps
+
     end
 
 

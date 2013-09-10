@@ -1,8 +1,14 @@
 <div class="container">
   <h1>Welcome to Uslex tweet fetcher</h1>
-  <form action="/user" method="get">
+  <form action="/user" method="post">
     <input type="text" name="username">
     <input type="submit" value="Get tweets!">
   </form>
 
+<div style="display:none;" id="load"><h3>Loading</h3>
+<img src="loading.gif"> • • • • • •
+</div>
+
+<div id="tweets">
+</div>
 </div>

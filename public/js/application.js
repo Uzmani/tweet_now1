@@ -4,4 +4,31 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+    $('form').submit(function(e){
+      e.preventDefault();
+      $('#load').show();
+      $('#tweets').empty();
+      $.ajax({
+        url: '/user',
+        type: 'post',
+        data: $(this).serialize()
+      })
+      .done(function(server_response) {
+      $('#load').hide();
+        $('#tweets').html(server_response);
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+      
+
+    });
+
+
+
+
 });
