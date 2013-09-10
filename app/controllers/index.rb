@@ -3,28 +3,28 @@ get '/' do
   erb :index
 end
 
-post '/user' do
+# post '/user' do
 
-  @user = TwitterUser.find_by_username(params[:username])
-p params
-    if  @user.nil? || @user.tweets.length == 0  
-      @user = TwitterUser.create(:username => params[:username])
-      @user.fetch_tweets
-    elsif @user.tweets_stale?
-      @user.tweets.destroy_all
-      @user.fetch_tweets 
-    end
+#   @user = TwitterUser.find_by_username(params[:username])
+# p params
+#     if  @user.nil? || @user.tweets.length == 0  
+#       @user = TwitterUser.create(:username => params[:username])
+#       @user.fetch_tweets
+#     elsif @user.tweets_stale?
+#       @user.tweets.destroy_all
+#       @user.fetch_tweets 
+#     end
   
 
-  @tweets = @user.tweets.order("id ASC")
-  @user = Twitter.user(params[:username])
+#   @tweets = @user.tweets.order("id ASC")
+#   @user = Twitter.user(params[:username])
 
-  erb :tweets, layout: false
+#   erb :tweets, layout: false
 
-end
+# end
 
 
 
-get '/loading' do 
-  erb :_loading, layout: false
-end
+# get '/loading' do 
+#   erb :_loading, layout: false
+# end
